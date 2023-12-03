@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>{{ num }}</p>
-    <button @click="increment">click me</button>
+    <button @click="increment">click me1</button>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
     const num = ref(0);
 
     const increment = () => {
-      num.value += 2;
+      num.value += 3;
     };
 
     return { num, increment };

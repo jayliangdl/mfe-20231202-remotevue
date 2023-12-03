@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --mode development",
-    "build": "webpack --mode production",
+    "dev": "webpack serve  --config webpack/webpack.config.js --env env=dev ",
+    "build": "webpack  --config webpack/webpack.config.js --env env=prod ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -20,7 +20,8 @@
     "vue": "^3.3.9",
     "vue-cli": "^2.9.6",
     "vue-loader": "^17.3.1",
-    "vue-template-compiler": "^2.6.14"
+    "vue-template-compiler": "^2.6.14",
+    "webpack-merge": "^5.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.5",

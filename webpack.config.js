@@ -7,7 +7,7 @@ const webpack = require('webpack');
 
 module.exports = {
   output: {
-    publicPath: "http://localhost:8281/",
+    publicPath: "http://localhost:8282/",
   },
 
   resolve: {
@@ -15,7 +15,7 @@ module.exports = {
   },
 
   mode: 'development',
-  entry: path.resolve(__dirname, './src/index.ts'),  //项目入口
+  entry: path.resolve(__dirname, './src/main.ts'),  //项目入口
   devServer: {
     port: 8282,
   },
@@ -71,22 +71,14 @@ module.exports = {
       __VUE_PROD_DEVTOOLS__: false // 通常在生产环境中应该设置为 false
     }),
     new ModuleFederationPlugin({
-<<<<<<< HEAD
       name: "remotevue",
       filename: "remoteVueEntry.js",
       remotes: {
-=======
-      name: "hostvue",
-      filename: "remoteVueEntry.js",
-      remotes: {
-        // 'remotevue-mf': `remotevue@http://localhost:8282/remoteVueEntry.js`,
-        'remote-mf': `remote@http://localhost:8082/remoteEntry.js`,
->>>>>>> eecb2d3e26835a0f510c58f7b4aeaec00b1ad86f
       },
       exposes: {
         './MyVueButton':'./src/MyVueButton.vue'
       },
-      shared: require("./package.json").dependencies,9
+      // shared: require("./package.json").dependencies
     }),
   ]
 };
