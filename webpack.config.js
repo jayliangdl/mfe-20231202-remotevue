@@ -9,7 +9,7 @@ module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, './src/main.ts'),  //项目入口
   devServer: {
-    port: 8281,
+    port: 8282,
   },
   module: {
     rules: [
@@ -41,12 +41,14 @@ module.exports = {
       __VUE_PROD_DEVTOOLS__: false // 通常在生产环境中应该设置为 false
     }),
     new ModuleFederationPlugin({
-      name: "host",
-      filename: "remoteEntry.js",
+      name: "remotevue",
+      filename: "remoteVueEntry.js",
       remotes: {
-        'remote-mf': `remote@http://localhost:8082/remoteEntry.js`,
       },
-      exposes: {},
+      exposes: {
+        './MyVueButton':'./src/MyVueButton.vue'
+      },
+      shared: require("./package.json").dependencies,9
     }),
   ]
 };
